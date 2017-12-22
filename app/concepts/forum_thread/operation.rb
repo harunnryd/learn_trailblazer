@@ -34,8 +34,12 @@ class ForumThread < ActiveRecord::Base
   end
 
   class Update < Create
-    action :update
+    action :update # note : ubah method semantik menjadi update :D
     contract do
+      # -------------------------------------------------
+      # note : writeable false ini membuat property tidak
+      # dapat di ubah saat peng-updatean :D
+      # -------------------------------------------------
       property :title, writeable: false
     end
   end

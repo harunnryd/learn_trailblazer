@@ -10,6 +10,17 @@ class ForumThreadsController < ApplicationController
     form ForumThread::Create
   end
 
+  def edit
+    # ----------------------------------------------------------------
+    # note : [FORMULIR RENDERING] wow! ternyata form method ini secara
+    # otomatis melewatkan semua params ke dalam operasi, params ini -
+    # juga berisi ../:id/.. :D
+    # ----------------------------------------------------------------
+    form ForumThread::Update
+
+    render action: :new
+  end
+
   def show
   end
 
