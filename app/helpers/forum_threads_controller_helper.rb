@@ -1,0 +1,2 @@
+module ForumThreadsControllerHelper
+end
