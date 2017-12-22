@@ -31,7 +31,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem "trailblazer-rails"
+gem "trailblazer-loader"
+gem "reform", "~> 2.1.0"
 
+group :test do
+  gem "minitest-spec-rails"
+  gem "minitest-rails-capybara"
+  gem "minitest-line" 
+  gem 'guard'
+  gem 'guard-minitest'
+end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
