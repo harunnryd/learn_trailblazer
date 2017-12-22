@@ -20,7 +20,7 @@ class ForumThread < ActiveRecord::Base
       validates :content, allow_blank: true, length: {in: 4..160}
     end
 
-    def process(params = {forum_thread: {title: "", content: ""}})
+    def process(params)
       # -------------------------------------------------------------------
       # note : yuhuuu, meng-include Model sama saja seperti menginstruksi
       # rails untuk menggunakan model dan operasinya, yap disini kita meng-
@@ -30,6 +30,13 @@ class ForumThread < ActiveRecord::Base
       validate(params[:forum_thread]) do |f|
         f.save
       end
+    end
+  end
+
+  class Update < Create
+    action :update
+    contract do
+      property :title, writeable: false
     end
   end
 end

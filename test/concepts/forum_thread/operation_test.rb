@@ -45,4 +45,24 @@ class ForumThreadOperationTest < MiniTest::Spec
       operation.contract.errors[:title].size.must_equal 2
     end
   end
+
+  describe "Update" do
+    let (:forum_thread) do
+      ForumThread::Create.(forum_thread: {title: "harun", content: "halo nama saya harun"}).model
+    end
+
+    it 'persist valid, ignore title' do
+      ForumThread::Update.(
+        id: forum_thread.id,
+        forum_thread: {
+          title: "waode",
+          content: "halo nama saya waode"
+        }
+      ).model
+
+      forum_thread.reload
+      forum_thread.title = "harun"
+      forum_thread.content = "halo nama saya waode"
+    end
+  end
 end
