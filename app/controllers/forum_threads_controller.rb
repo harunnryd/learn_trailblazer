@@ -1,8 +1,13 @@
-class ForumThreadsControllerController < ApplicationController
+class ForumThreadsController < ApplicationController
   def index
   end
 
   def new
+    # ----------------------------------------------------------------
+    # note : [FORMULIR RENDERING] form method hanya akan meng-instance
+    # modelnya, namun tidak akan mengeksekusi proses apapun :D
+    # ----------------------------------------------------------------
+    form ForumThread::Create
   end
 
   def show
